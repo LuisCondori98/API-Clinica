@@ -41,7 +41,7 @@ userRouter.post("/register", async (req, res) => {
 
   setTimeout(() => {
 
-    return res.redirect("http://localhost:5173/inicio")
+    return res.redirect("https://clinicavidaplena.vercel.app//inicio")
   }, 2000)
 })
 
@@ -57,7 +57,7 @@ userRouter.post("/login", async (req, res) => {
 
   if(user.length === 0) {
 
-    return res.redirect("http://localhost:5173/registrar")
+    return res.redirect("https://clinicavidaplena.vercel.app//registrar")
   }
 
   return res.json(user)
