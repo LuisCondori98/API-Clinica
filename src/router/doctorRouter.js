@@ -20,3 +20,21 @@ doctorRouter.post("/", async (req, res) => {
 
   return res.json("user created")
 })
+
+doctorRouter.post("/login", async (req, res) => {
+
+  const body = req.body
+
+  console.log(body.Dni, body.Contrasenia)
+
+  const doctor = await doctorModel.find({ Dni: body.Dni, Contrasenia: body.Contrasenia})
+
+  console.log(doctor)
+
+  if(doctor.length === 0) {
+
+    return res.redirect("http://localhost:5173/registrar")
+  }
+
+  return res.json(doctor)
+})
