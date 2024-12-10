@@ -1,12 +1,15 @@
 import express from 'express';
 import cors from 'cors';
 import mongoose from 'mongoose';
+import dotenv from "dotenv"
 import { userRouter } from './router/userRouter.js';
 import { citasRouter } from './router/citasRouter.js';
 import { doctorRouter } from './router/doctorRouter.js';
 
+dotenv.config()
+
 const app = express();
-const PORT = 8080
+const PORT = process.env.PORT || 8080
 
 app.use(cors())
 
@@ -14,7 +17,7 @@ app.use(express.static("public"))
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
 
-mongoose.connect("mongodb+srv://luisbarker11:IvkCQGSAr89lPcCh@cluster.p21e02a.mongodb.net/ClinicaVidaPlena?retryWrites=true&w=majority")
+mongoose.connect(process.env.MONGO_URL)
   .then(() => {
     console.log("Connected to Mongo")
   })
