@@ -24,7 +24,7 @@ userRouter.get("/:id", async (req, res) => {
 
 userRouter.get("/pacientes", async (req, res) => {
 
-  const users = await userModel.find({ Role: "Paciente"})
+  const users = await userModel.find({ Role: "Paciente" })
 
   console.log(users)
 
